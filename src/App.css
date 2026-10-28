@@ -1,0 +1,180 @@
+:root {
+  --primary-color: #75b3fa;
+  --background: #c4cffc;
+  --text-col: #151d25;
+  --sunny-col: #f1c40f;
+  --rain-clouds: #5c33a1;
+  --buttons: #1560b0;
+  --error: #621111;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #151d25;
+  background: #c4cffc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(var(--rain-clouds) 0%, var(--primary-color) 55%, var(--background) 100%);
+}
+button, input { font: inherit; }
+button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--buttons);
+  color: azure;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: var(--buttons); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 3px solid var(--sunny-col);
+  outline-offset: 4px;
+}
+.app { width: min(960px, 100%); margin: auto; padding: 28px 20px; }
+header { text-align: center; color: azure; }
+h1 { margin: 0; color: var(--primary-color); font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: clamp(2rem, 6vw, 3rem); }
+.subtitle { margin: 10px 0 30px; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  background: transparent;
+  border-radius: 18px;
+}
+.search-form { flex: 1 1 280px; min-width: 0; }
+.search-form > label { display: block; margin-bottom: 8px; font-weight: 700; }
+.searchbar { display: flex; gap: 8px; }
+.searchbar input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: white;
+  color: var(--text-col);
+  font-weight: 600;
+}
+.unit-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 12px 12px;
+  border: 0;
+  background: var(--buttons);
+  color: azure;
+  border-radius: 20px;
+}
+.unit-toggle legend { 
+  padding: 0 5px; 
+  font-weight: 700; 
+  top: 12px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 15px 0 0;
+  text-align: center;
+  line-height: 1.2;
+}
+.unit-toggle label { display: flex; align-items: center; gap: 5px; }
+.unit-toggle input { margin: 0; accent-color: var(--primary-color); }
+main { min-height: 180px; }
+.status, .error-box { margin: 26px auto; text-align: center; padding: 18px; }
+.status { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.error-box { background: transparent; color: var(--error); border-radius: 14px; }
+.validation-error { margin: 10px 0 0; color: var(--error); }
+.chosen { text-align: center; padding-top: 20px; }
+.cityname { margin: 20px 0 0; font-size: clamp(1.8rem, 5vw, 2.5rem); overflow-wrap: anywhere; }
+.current-temp { margin: 0; font-size: 4rem; font-weight: 300; }
+.now { letter-spacing: 1px; font-size: 0.9rem; }
+.current-condition { font-size: 1.1rem; font-weight: 700; }
+.details { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin: 24px 0 36px; }
+.details dt { font-size: 0.9rem; }
+.details dd { margin: 5px 0 0; font-weight: 700; }
+.weekforecast { max-width: 560px; margin: auto; }
+.weekforecast h2{ text-align: center; }
+.weekforecast h2 { margin-bottom: 6px; font-size: 1.3rem; }
+.forecast-title{ text-align: center; padding-bottom: 60px; font-size: 1.3rem; }
+.forecast-list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  margin-top: 24px;
+  padding: 24px;
+  list-style: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  background: linear-gradient(to right, var(--background) 0%, var(--primary-color) 50%, var(--rain-clouds) 100%);
+}
+.forecast-day {
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 1fr 0.6fr 1fr;
+  gap: 10px;
+  align-items: center;
+  font-weight: 700;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+.forecast-day > :not(:first-child) { text-align: center; }
+.forecast-day > * {
+  text-align: center;
+}
+footer { text-align: center; margin-top: 36px; font-size: 0.85rem; }
+footer a { color: var(--text-col); }
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--background);
+  border-top-color: var(--buttons);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .app { padding: 22px 14px; }
+  .controls { padding: 18px; gap: 18px; }
+  .search-form, .unit-toggle { flex-basis: 100%; }
+  .details { gap: 20px; }
+  .forecast-list { padding: 20px 12px; }
+  .forecast-day { gap: 6px; font-size: 0.9rem; }
+}
+/* Match the original search-button gradient. */
+.searchbar button {
+  background: linear-gradient(var(--rain-clouds) 0%, var(--buttons) 120%);
+  color: azure;
+}
+
+/* Success components mount after each successful search, replaying the entrance. */
+.chosen,
+.weekforecast {
+  animation: weatherFloatIn 1s ease both;
+}
+
+.status,
+.error-box {
+  animation: statusFloatIn 0.5s ease;
+}
+
+@keyframes weatherFloatIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statusFloatIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner, .chosen, .weekforecast, .status, .error-box { animation: none; }
+}
