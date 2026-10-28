@@ -67,18 +67,6 @@ The JSX conditionally renders idle, loading, error, or success. The success comp
 
 No API key or `.env` file is required for these public endpoints. The first geocoding match is used, as in Assignment 4. Network access and API availability are required for live results.
 
-## Assignment and grading checklist
-
-| Criterion | Points | Implementation |
-| --- | ---: | --- |
-| Component architecture | 25 | Eight focused components including App; each in its own file |
-| State management | 20 | Form state stays local; weather and units are shared in App |
-| useEffect / fetching | 20 | Async loading function, explicit dependencies, HTTP checks, cleanup |
-| Props / communication | 15 | App/SearchBar, App/UnitToggle, App/WeatherCard, App/Forecast, Forecast/ForecastDay |
-| UI/UX / responsiveness | 10 | Mobile layout, controlled form, unit choices, loading/error/success |
-| Code quality | 10 | Clear components/services/utils, reusable helpers, no template logos or console logs |
-
-These cover the Assignment 5 PDF and slides 15, pages 23-24. A checklist supports review; the instructor assigns the grade.
 
 ## Manual verification
 
